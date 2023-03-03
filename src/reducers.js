@@ -13,30 +13,6 @@ const baslangicDegerleri = {
   ],
 };
 
-const reducer = (state = baslangicDegerleri, action) => {
-  switch (action.type) {
-    case NOT_EKLE:
-      const yeniNot = {
-        id: nanoid(),
-        date: Date(),
-        body: Object.values(action.payload)
-          .filter((v) => v !== "")
-          .join("|"),
-      };
-      return {
-        ...state,
-        notlar: [...state.notlar, yeniNot]
-      }
-    case NOT_SIL:
-      console.log(action.payload)
-      return {
-        ...state,
-        notlar: state.notlar.filter(not => not.id !== action.payload)
-      }
-    default:
-      return state;
-  }
-}
 
 function localStorageStateYaz(key, data) {
   localStorage.setItem(key, JSON.stringify(data));
@@ -53,6 +29,36 @@ function baslangicNotlariniGetir(key) {
     return localStorageStateOku(key);
   } else {
     return baslangicDegerleri
+  }
+}
+
+const reducer = (state = baslangicDegerleri, action) => {
+  switch (action.type) {
+    case NOT_EKLE: {
+      const yeniNot = {
+        id: nanoid(),
+        date: Date(),
+        body: Object.values(action.payload)
+          .filter((v) => v !== "")
+          .join("|"),
+      };
+      const newState = {
+        ...state,
+        notlar: [...state.notlar, yeniNot]
+      }
+      localStorageStateYaz(s10chLocalStorageKey, newState.notlar)
+      return newState;
+    }
+    case NOT_SIL: {
+      const newState = {
+        ...state,
+        notlar: state.notlar.filter(not => not.id !== action.payload)
+      }
+      localStorageStateYaz(s10chLocalStorageKey, newState.notlar)
+      return newState;
+    }
+    default:
+      return state;
   }
 }
 
