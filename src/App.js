@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Switch, Route, NavLink } from "react-router-dom";
 import PostForm from "./components/PostForm";
 import PostList from "./components/PostList";
 import Img from "./assets/gratitude.jpg";
+import { useDispatch } from "react-redux";
+import { NOT_BASLANGIC } from './actions';
 
 export default function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {dispatch({type: NOT_BASLANGIC})}, []);
   return (
     <div>
       <div className="bg-white shadow mb-8">
