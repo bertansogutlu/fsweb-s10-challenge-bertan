@@ -1,7 +1,7 @@
 import React from "react";
 import { formatDistanceToNow } from "date-fns";
 import { tr } from "date-fns/locale";
-import { notSil } from '.././actions';
+import { notSilAPI } from '.././actions';
 import { useDispatch } from "react-redux";
 
 export default function Post({ item }) {
@@ -9,7 +9,7 @@ export default function Post({ item }) {
 const dispatch = useDispatch();
 
   function handleSil() {
-    dispatch(notSil(item.id));
+    dispatch(notSilAPI(item.id))
     // burada ilgili eylemi dispatch edin
     // sonra toast mesajı gösterin
   }
