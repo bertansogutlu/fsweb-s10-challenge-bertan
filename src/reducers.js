@@ -45,7 +45,7 @@ const reducer = (state = baslangicDegerleri, action) => {
       };
       const newState = {
         ...state,
-        notlar: [...state.notlar, yeniNot]
+        notlar: [yeniNot, ...state.notlar]
       }
       localStorageStateYaz(s10chLocalStorageKey, newState.notlar)
       return newState;
