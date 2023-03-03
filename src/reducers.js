@@ -10,6 +10,13 @@ const baslangicDegerleri = {
   ],
 };
 
+const reducer =(state=baslangicDegerleri,action)=>{
+  switch(action.type){
+  default:
+    return state
+  }
+}
+
 function localStorageStateYaz(key, data) {
   localStorage.setItem(key, JSON.stringify(data));
 }
@@ -27,3 +34,5 @@ function baslangicNotlariniGetir(key) {
     return baslangicDegerleri
   }
 }
+
+export default reducer;
