@@ -2,6 +2,8 @@ import axios from "axios";
 
 export const NOT_EKLE = "NOT_EKLE"
 export const NOT_SIL = "NOT_SIL"
+export const NOT_BASLANGIC = "NOT_BASLANGIC"
+
 
 export function notEkle(not) {
   return {type: NOT_EKLE, payload: not}
