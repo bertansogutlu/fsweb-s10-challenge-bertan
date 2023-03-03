@@ -1,3 +1,5 @@
+import { NOT_EKLE, NOT_SIL } from './actions';
+
 const s10chLocalStorageKey = "s10ch";
 
 const baslangicDegerleri = {
@@ -10,10 +12,20 @@ const baslangicDegerleri = {
   ],
 };
 
-const reducer =(state=baslangicDegerleri,action)=>{
-  switch(action.type){
-  default:
-    return state
+const reducer = (state = baslangicDegerleri, action) => {
+  switch (action.type) {
+    case NOT_EKLE:
+      console.log(NOT_EKLE)
+      return {
+        ...state
+      }
+    case NOT_SIL:
+      console.log(NOT_SIL)
+      return {
+        ...state
+      }
+    default:
+      return state;
   }
 }
 
