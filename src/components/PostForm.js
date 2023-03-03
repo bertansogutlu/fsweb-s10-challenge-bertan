@@ -1,6 +1,5 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { nanoid } from "nanoid";
 import { useHistory } from "react-router";
 import Gratitude from "./../assets/grForm.png";
 import { notEkle } from '.././actions';
@@ -17,13 +16,6 @@ export default function PostForm() {
   const dispatch = useDispatch();
 
   function onSubmit(data) {
-    const yeniNot = {
-      id: nanoid(),
-      date: Date(),
-      body: Object.values(data)
-        .filter((v) => v !== "")
-        .join("|"),
-    };
     dispatch(notEkle(data));
     // burada ilgili eylemi dispatch edin
     // toast mesajı gösterin

@@ -1,4 +1,5 @@
 import { NOT_EKLE, NOT_SIL } from './actions';
+import { nanoid } from "nanoid";
 
 const s10chLocalStorageKey = "s10ch";
 
@@ -15,14 +16,22 @@ const baslangicDegerleri = {
 const reducer = (state = baslangicDegerleri, action) => {
   switch (action.type) {
     case NOT_EKLE:
-      console.log(NOT_EKLE)
+      const yeniNot = {
+        id: nanoid(),
+        date: Date(),
+        body: Object.values(action.payload)
+          .filter((v) => v !== "")
+          .join("|"),
+      };
       return {
-        ...state
+        ...state,
+        notlar: [...state.notlar, yeniNot]
       }
     case NOT_SIL:
-      console.log(NOT_SIL)
+      console.log(action.payload)
       return {
-        ...state
+        ...state,
+        notlar: state.notlar.filter(not => not.id !== action.payload)
       }
     default:
       return state;

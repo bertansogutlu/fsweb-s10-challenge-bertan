@@ -9,7 +9,7 @@ export default function Post({ item }) {
 const dispatch = useDispatch();
 
   function handleSil() {
-    dispatch(notSil());
+    dispatch(notSil(item.id));
     // burada ilgili eylemi dispatch edin
     // sonra toast mesajı gösterin
   }
