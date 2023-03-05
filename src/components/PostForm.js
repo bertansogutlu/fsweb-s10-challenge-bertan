@@ -18,7 +18,16 @@ export default function PostForm() {
 
   function onSubmit(data) {
     dispatch(notEkleAPI(data));
-    toast("Not Eklendi!");
+    toast.success("Not Eklendi!", {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+      });
     setTimeout(() => history.push("/notlar"), 2000);
     //dispatch(notEkle(data));
     // burada ilgili eylemi dispatch edin

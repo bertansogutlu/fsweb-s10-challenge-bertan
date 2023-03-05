@@ -8,13 +8,22 @@ import { toast } from 'react-toastify';
 
 export default function Post({ item }) {
 
-const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   function handleSil() {
     dispatch(notSilAPI(item.id))
     // burada ilgili eylemi dispatch edin
     // sonra toast mesajı gösterin
-   toast("Not Silindi!");
+    toast.warn("Not Silindi!", {
+      position: "top-right",
+      autoClose: 2000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "light",
+    });
   }
 
   return (
