@@ -4,6 +4,7 @@ import { useHistory } from "react-router";
 import Gratitude from "./../assets/grForm.png";
 import { notEkleAPI } from '.././actions';
 import { useDispatch } from "react-redux";
+import { toast } from 'react-toastify';
 
 export default function PostForm() {
   const {
@@ -17,7 +18,8 @@ export default function PostForm() {
 
   function onSubmit(data) {
     dispatch(notEkleAPI(data));
-    setTimeout(() => history.push("/notlar"), 2000)
+    toast("Not Eklendi!");
+    setTimeout(() => history.push("/notlar"), 2000);
     //dispatch(notEkle(data));
     // burada ilgili eylemi dispatch edin
     // toast mesajı gösterin

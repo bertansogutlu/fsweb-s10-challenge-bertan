@@ -5,12 +5,15 @@ import PostList from "./components/PostList";
 import Img from "./assets/gratitude.jpg";
 import { useDispatch } from "react-redux";
 import { NOT_BASLANGIC } from './actions';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export default function App() {
   const dispatch = useDispatch();
   useEffect(() => {dispatch({type: NOT_BASLANGIC})}, []);
   return (
     <div>
+      <ToastContainer />
       <div className="bg-white shadow mb-8">
         <nav className="flex gap-2 justify-center max-w-xl mx-auto text-zinc-500">
           <NavLink

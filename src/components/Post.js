@@ -3,6 +3,8 @@ import { formatDistanceToNow } from "date-fns";
 import { tr } from "date-fns/locale";
 import { notSilAPI } from '.././actions';
 import { useDispatch } from "react-redux";
+import { toast } from 'react-toastify';
+
 
 export default function Post({ item }) {
 
@@ -12,6 +14,7 @@ const dispatch = useDispatch();
     dispatch(notSilAPI(item.id))
     // burada ilgili eylemi dispatch edin
     // sonra toast mesajı gösterin
+   toast("Not Silindi!");
   }
 
   return (
