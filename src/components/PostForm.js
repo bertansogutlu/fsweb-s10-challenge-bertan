@@ -16,7 +16,8 @@ export default function PostForm() {
   const dispatch = useDispatch();
 
   function onSubmit(data) {
-    dispatch(notEkleAPI(data))
+    dispatch(notEkleAPI(data));
+    setTimeout(() => history.push("/notlar"), 2000)
     //dispatch(notEkle(data));
     // burada ilgili eylemi dispatch edin
     // toast mesajı gösterin
